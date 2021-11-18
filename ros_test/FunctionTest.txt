@@ -1,0 +1,72 @@
+<< Motor Ros TEST>>
+##[TEST]
+#1) EXECUTE roscore
+
+##창을 새로 띄운 후 roscore 실행
+$ roscore
+Running the Motors
+Open a new terminal, and start the jetbot_motors node:
+
+#2)
+$ rosrun jetbot_ros jetbot_motors.py
+The jetbot_motors node will listen on the following topics:
+
+/jetbot_motors/cmd_dir relative heading (degree [-180.0, 180.0], speed [-1.0, 1.0])
+/jetbot_motors/cmd_raw raw L/R motor commands (speed [-1.0, 1.0], speed [-1.0, 1.0])
+/jetbot_motors/cmd_str simple string commands (left/right/forward/backward/stop)
+Note: currently only cmd_str method is implemented.
+
+#3)
+Test Motor Commands
+Open a new terminal, and run some test commands:
+
+$ rostopic pub /jetbot_motors/cmd_str std_msgs/String --once "forward"
+$ rostopic pub /jetbot_motors/cmd_str std_msgs/String --once "backward"
+$ rostopic pub /jetbot_motors/cmd_str std_msgs/String --once "left"
+$ rostopic pub /jetbot_motors/cmd_str std_msgs/String --once "right"
+$ rostopic pub /jetbot_motors/cmd_str std_msgs/String --once "stop"
+
+=====================================
+<< CAMERA Ros TEST>>
+
+cd jetson-inference/utils/camera/
+
+gedit gstCamera.cpp
+comment 139, 140, 141 line
+
+~/jetson-inference/build
+
+make
+sudo make install
+
+
+-------------------------------------
+##[TEST]
+#1) EXECUTE roscore
+
+##창을 새로 띄운 후 roscore 실행
+
+roscore
+
+#2) camera
+rosrun jetbot_ros jetbot_camera
+
+#3)view
+sudo apt-get install ros-melodic-image-view
+
+rosrun image_view image_view image:=/jetbot_camera/raw
+
+========================================
+<< Deep Learning Test 1 >>
+
+$ roscore
+
+$  roslaunch ros_deep_learning imagenet.ros1.launch input:=csi://0 output:=display://0
+
+<< Deep Learning Test 2 >>
+
+$ roscore
+
+$ roslaunch ros_deep_learning detectnet.ros1.launch input:=csi://0 output:=display://0
+========================================
+
