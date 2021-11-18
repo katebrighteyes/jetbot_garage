@@ -1,4 +1,5 @@
 # Install ROS Melodic
+# If you install melodic already, go to # Install Adafruit Libraries
 
 sudo apt update
 
@@ -40,7 +41,7 @@ rosrun turtlesim turtlesim_node
 
 rosrun turtlesim turtle_teleop_key
 
-======================================
+=======================================================================
 
 #  Install Adafruit Libraries
 
