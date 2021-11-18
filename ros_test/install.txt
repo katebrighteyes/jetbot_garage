@@ -92,7 +92,10 @@ make
 
 # install libraries
 sudo make install
-ldconfig
+sudo ldconfig
+
+OR
+make ; sudo make install; sudo ldconfig
 
 # test
 detectnet csi://0
