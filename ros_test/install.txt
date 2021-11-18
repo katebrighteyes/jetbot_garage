@@ -78,9 +78,10 @@ sudo apt-get install git cmake
 
 git clone https://github.com/dusty-nv/jetson-inference
 
-19ed62150b3e9499bad2ed6be1960dd38002bb7d
-
 cd jetson-inference
+
+git checkout 19ed62150b3e9499bad2ed6be1960dd38002bb7d
+
 git submodule update --init
 
 # build from source
@@ -109,10 +110,13 @@ git clone https://github.com/dusty-nv/ros_deep_learning
 
 $ cd ~/catkin_ws/src
 $ git clone https://github.com/dusty-nv/jetbot_ros
-179bdaa3614123b7f08dcfafe6bc5367bbbf058b
+
+cd jetbot_ros
+
+git checkout 179bdaa3614123b7f08dcfafe6bc5367bbbf058b
 
 # build the package
-$ cd ../    
+$ cd ~/catkin_ws
 $ catkin_make
 
 # confirm that jetbot_ros package can be found
